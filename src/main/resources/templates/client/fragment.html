@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Thương mại điện tử</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+	<header th:fragment="headerBox">
+		<!-- Header Start -->
+		<div class="header-area">
+			<div class="main-header header-sticky">
+				<div class="container-fluid">
+					<div class="menu-wrapper">
+						<!-- Logo -->
+						<div class="logo">
+							<a th:href="@{/}"><img src="/client/assets/img/logo/logo.png"
+								alt=""></a>
+						</div>
+						<!-- Main-menu -->
+						<div class="main-menu d-none d-lg-block">
+							<nav>
+								<ul id="navigation">
+									<li><a th:href="@{/}">Trang chủ</a></li>
+									<li><a href="#">Danh mục</a>
+										<ul class="submenu">
+											<li th:each="categoryDTO : ${categoryDTOs}"><a
+												th:href="@{/category/{name}(name=${categoryDTO.name})}"
+												th:text="${categoryDTO.name}"></a></li>
+										</ul></li>
+									<!--  <li th:if="${session.username != null}"><a
+										th:href="@{/profile}">Profile</a></li>
+									<li th:if="${session.username == null}"><a
+										th:href="@{/login}">Profile</a></li>
+										-->
+									<li th:if="${session.username != null}"><a
+										th:href="@{/my-cart}">Giỏ hàng</a></li>
+									<li th:if="${session.username == null}"><a
+										th:href="@{/login}">Giỏ hàng</a></li>
+									<li th:if="${session.username != null}"><a
+										th:href="@{/my-order}">Hoá đơn đặt</a></li>
+									<li th:if="${session.username == null}"><a
+										th:href="@{/login}">Hoá đơn đặt</a></li>
+									<li><a href="https://fb.com/hoangxq2k1">Liên hệ</a></li>
+									<li th:if="${session.username != null}"><a
+										th:href="@{/logout}">Đăng xuất</a></li>
+									<li th:if="${session.username == null}"><a
+										th:href="@{/login}">Đăng nhập</a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- Header Right -->
+						<div class="header-right">
+							<ul>
+								<li>
+									<div class="nav-search search-switch">
+										<span class="flaticon-search"></span>
+									</div>
+								</li>
+								<li th:if="${session.username == null}"><a
+									th:href="@{/login}"><span class="flaticon-user"></span></a></li>
+								<li th:if="${session.username != null}"><a
+									th:href="@{/profile}"><span class="flaticon-user"></span></a></li>
+								<li th:if="${session.username == null}"><a
+									th:href="@{/login}"><span class="flaticon-shopping-cart"></span></a></li>
+								<li th:if="${session.username != null}"><a
+									th:href="@{/my-cart}"><span class="flaticon-shopping-cart"></span></a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- Mobile Menu -->
+					<div class="col-12">
+						<div class="mobile_menu d-block d-lg-none"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header End -->
+	</header>
+	
+	<footer th:fragment="footerBox">
+		<!-- Footer Start-->
+		<div class="footer-area footer-padding">
+			<div class="container">
+				<div class="row d-flex justify-content-between">
+					<div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+						<div class="single-footer-caption mb-50">
+							<div class="single-footer-caption mb-30">
+								<!-- logo -->
+								<div class="footer-logo">
+									<a href="index.html"><img
+										src="/client/assets/img/logo/logo2_footer.png" alt=""></a>
+								</div>
+								<div class="footer-tittle">
+									<div class="footer-pera">
+										<p>Asorem ipsum adipolor sdit amet, consectetur
+											adipisicing elitcf sed do eiusmod tem.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+						<div class="single-footer-caption mb-50">
+							<div class="footer-tittle">
+								<h4>Liên kết nhanh</h4>
+								<ul>
+									<li><a href="#">Về chúng tôi</a></li>
+									<li><a href="#"> Ưu đãi và khuyến mãi</a></li>
+									<li><a href="#"> Nhận phiếu giảm giá</a></li>
+									<li><a href="#"> Liên hệ với chúng tôi</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+						<div class="single-footer-caption mb-50">
+							<div class="footer-tittle">
+								<h4>Sản phẩm mới</h4>
+								<ul>
+									<li><a href="#"></a></li>
+									<li><a href="#"></a></li>
+									<li><a href="#"></a></li>
+									<li><a href="#"></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+						<div class="single-footer-caption mb-50">
+							<div class="footer-tittle">
+								<h4>Hô trợ</h4>
+								<ul>
+									<li><a href="#">Những câu hỏi thường gặp</a></li>
+									<li><a href="#">Điều khoản và dịch vụ</a></li>
+									<li><a href="#">Chính sách bảo mật</a></li>
+									<li><a href="#">Báo cáo vân đề thanh toán</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Footer bottom -->
+				<div class="row align-items-center">
+					<div class="col-xl-7 col-lg-8 col-md-7">
+						<div class="footer-copy-right">
+							<p>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
+								Được sở hữu bởi
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</p>
+						</div>
+					</div>
+					<div class="col-xl-5 col-lg-4 col-md-5">
+						<div class="footer-copy-right f-right">
+							<!-- social -->
+							<div class="footer-social">
+								<a href="#"><i class="fab fa-twitter"></i></a> <a
+									href="https://www.facebook.com/hoangxq2k1"><i
+									class="fab fa-facebook-f"></i></a> <a href="#"><i
+									class="fab fa-behance"></i></a> <a href="#"><i
+									class="fas fa-globe"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+	<div th:fragment="searchBox" class="search-model-box">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-btn">+</div>
+			<form th:action="@{/search}" method="get" class="search-model-form">
+				<input name="productName" type="text" id="search-input"
+					placeholder="Searching key.....">
+			</form>
+		</div>
+	</div>
+	
+</body>
+</html>
