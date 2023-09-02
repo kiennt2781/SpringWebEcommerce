@@ -1,85 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin | Đăng nhập</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/css/util.css">
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<!--===============================================================================================-->
 
-<!-- Google Font: Source Sans Pro -->
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-<!-- Font Awesome -->
-<link rel="stylesheet"
-	href="/admin/plugins/fontawesome-free/css/all.min.css">
-<!-- icheck bootstrap -->
-<link rel="stylesheet"
-	href="/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="/admin/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page">
-	<div class="login-box">
-		<div class="login-logo">
-			<b>Admin</b>
-		</div>
-		<!-- /.login-logo -->
-		<div class="card">
-			<div class="card-body login-card-body">
-				<p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+<body>
 
-				<form th:action="@{/admin/login}" method="post">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title"
+					style="background-image: url(/images/bg-01.jpg);">
+					<span class="login100-form-title-1"> Admin Login </span>
+				</div>
 
-					<div th:if="${param.error}">
-						<div class="alert alert-danger">Tài khoản hoặc mật khẩu không hợp lệ
-						</div>
+				<div th:if="${param.error}">
+					<div class="alert alert-danger">Tài khoản hoặc mật khẩu không
+						hợp lệ</div>
+				</div>
+
+				<div th:if="${param.logout}">
+					<div class="alert alert-info">Bạn đã đăng xuất</div>
+				</div>
+
+				<form class="login100-form validate-form"
+					th:action="@{/admin/login}" method="post">
+
+					<div class="wrap-input100">
+						<span class="label-input100">Email</span> <input class="input100"
+							name="username" type="email" placeholder="Enter email"
+							required="required"> <span class="focus-input100"></span>
 					</div>
 
-					<div th:if="${param.logout}">
-						<div class="alert alert-info">Bạn đã đăng xuất</div>
+					<div class="wrap-input100">
+						<span class="label-input100">Password</span> <input
+							class="input100" name="password" type="password"
+							placeholder="Enter password" required="required"> <span
+							class="focus-input100"></span>
 					</div>
 
-					<div class="input-group mb-3">
-						<input name="username" type="email" class="form-control" placeholder="Email">
-						<div class="input-group-append">
-							<div class="input-group-text">
-								<span class="fas fa-envelope"></span>
-							</div>
-						</div>
-					</div>
-					<div class="input-group mb-3">
-						<input name="password" type="password" class="form-control" placeholder="Password">
-						<div class="input-group-append">
-							<div class="input-group-text">
-								<span class="fas fa-lock"></span>
-							</div>
-						</div>
-					</div>
-					<div class="row">
+					<div class="flex-sb-m w-full p-b-30"></div>
 
-						<!-- /.col -->
-						<div class="col-4">
-							<button type="submit" class="btn btn-primary btn-block">Đăng Nhập</button>
-						</div>
-						<!-- /.col -->
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">ĐĂNG NHẬP
+						</button>
 					</div>
 				</form>
-
-
-				<!-- /.social-auth-links -->
-
-
 			</div>
-			<!-- /.login-card-body -->
 		</div>
 	</div>
-	<!-- /.login-box -->
 
-	<!-- jQuery -->
-	<script src="/admin/plugins/jquery/jquery.min.js"></script>
-	<!-- Bootstrap 4 -->
-	<script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- AdminLTE App -->
-	<script src="/admin/dist/js/adminlte.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/vendor/bootstrap/js/popper.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="/js/main.js"></script>
+
 </body>
 </html>
