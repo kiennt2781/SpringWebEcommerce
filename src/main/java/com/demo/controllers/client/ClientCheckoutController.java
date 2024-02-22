@@ -125,8 +125,6 @@ public class ClientCheckoutController {
         List<OrderItemDTO> orderItemDTOs = orderItemService.getByOrder(order).stream()
         		.map(e -> e.toDTO()).collect(Collectors.toList());
         
-        
-        
         model.addAttribute("orderDTO", orderDTO);
         model.addAttribute("orderItemDTOs", orderItemDTOs);
         
